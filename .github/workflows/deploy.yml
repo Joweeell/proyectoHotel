@@ -94,7 +94,7 @@ jobs:
             echo '${{ secrets.GH_CR_PAT }}' | sudo docker login ${{ env.REGISTRY }} -u ${{ github.actor }} --password-stdin
             
             # Descargar la última versión de la imagen
-            sudo docker pull ${{ env.REGISTRY }}/$IMAGE_NAME:latest
+              docker pull ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
             
             # --- PASOS IDEMPOTENTES DEL CONTENEDOR ---
             sudo docker stop ${{ env.CONTAINER_NAME }} || true
